@@ -92,7 +92,15 @@ function Home() {
     setSelecteds(event.target.value);
   };
 
-
+  const viewHandle = (val) =>{
+    console.log("val",val);
+    // if( val %2 === 0){
+    //   navigate(`/Details/${val}`)
+    // }
+    if (val %2 === 0){
+      setShow(false)
+        }
+  }
 
   return (
     <>
@@ -138,7 +146,24 @@ function Home() {
                         <TableCell>{row.email}</TableCell>
 
                         <TableCell>
-                          {row.id % 2 == 0 ? (
+                          {
+                            show[row.id] !== false ? (<Button onClick={() => {
+                              if (row.id % 2 !== 0) {
+                                setShow({
+                                  ...show,
+                                  [row.id]: false
+                                });
+                              } else{
+                                navigate(`/Details/${row.id}`)
+                              }
+                            }}>
+                              view
+                            </Button>) : null
+                          }
+                           
+
+
+                          {/* {row.id % 2 === 0 ? (
                             <>
                               <Button
                                 onClick={() => navigate(`/Details/${row.id}`)}
@@ -146,12 +171,17 @@ function Home() {
                                 View
                               </Button>{" "}
                             </>
-                          ) : row.id % 2 == 1 ? (
+                          ) : row.id % 2 === 1 ? (
                             <>
-                              {show ? (
+                              {show[row.id] !== false ? (
                                 <Button
                                   onClick={() => {
-                                    setShow(!show);
+                                    if (data.value % 2 === 1) {
+                                      setShow({
+                                        ...show,
+                                        [row.id]: false
+                                      });
+                                    }
                                   }}
                                 >
                                   View
@@ -162,7 +192,7 @@ function Home() {
                             </>
                           ) : (
                             ""
-                          )}
+                          )}  */}
                         </TableCell>
                       </TableRow>
                     </>
