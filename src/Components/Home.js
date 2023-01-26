@@ -160,39 +160,7 @@ function Home() {
                               view
                             </Button>) : null
                           }
-                           
-
-
-                          {/* {row.id % 2 === 0 ? (
-                            <>
-                              <Button
-                                onClick={() => navigate(`/Details/${row.id}`)}
-                              >
-                                View
-                              </Button>{" "}
-                            </>
-                          ) : row.id % 2 === 1 ? (
-                            <>
-                              {show[row.id] !== false ? (
-                                <Button
-                                  onClick={() => {
-                                    if (data.value % 2 === 1) {
-                                      setShow({
-                                        ...show,
-                                        [row.id]: false
-                                      });
-                                    }
-                                  }}
-                                >
-                                  View
-                                </Button>
-                              ) : (
-                                ""
-                              )}
-                            </>
-                          ) : (
-                            ""
-                          )}  */}
+                          
                         </TableCell>
                       </TableRow>
                     </>
